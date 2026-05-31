@@ -735,7 +735,29 @@
                         style="text-align: center; color: #92400E; font-size: 1rem; margin-bottom: 2rem; border-bottom: 1px dashed #D97706; padding-bottom: 1rem;">
                         📍 禮盒重量皆為 5 斤 (3公斤) / 盒</p>
 
-                    <div class="product-card" style="background: white; margin: 0 auto; width: 100%; max-width: 340px;">
+                    <!-- 📱 只有手機才會生效的置中魔法 CSS (可以貼在卡片區塊的正上方) -->
+                    <style>
+                        @media (max-width: 768px) {
+                            .mobile-center-grid {
+                                display: flex !important;
+                                flex-direction: column !important;
+                                align-items: center !important;
+                            }
+
+                            .mobile-center-grid .product-card {
+                                width: 95% !important;
+                                /* 手機上自動縮放，留一點點呼吸空間 */
+                                max-width: 350px !important;
+                                margin: 0 auto !important;
+                            }
+                        }
+                    </style>
+
+                    <!-- 💻 商品卡片外層大容器 (加上了 mobile-center-grid 標籤) -->
+                    <div class="mobile-center-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+
+                        <!-- 第一款：愛文黑鑽禮盒 -->
                         <div class="product-card" style="background: white;">
                             <h4>愛文黑鑽禮盒</h4>
                             <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">5-6 粒 (隨機出貨)</p>
@@ -750,6 +772,7 @@
                                 onclick="addToCartWithQty('愛文黑鑽禮盒(5-6粒)', 1500, 'qty-gb1')">加入購物車</button>
                         </div>
 
+                        <!-- 第二款：夏雪黑鑽禮盒 -->
                         <div class="product-card" style="background: white;">
                             <h4>夏雪黑鑽禮盒</h4>
                             <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">5-6 粒 (隨機出貨)</p>
@@ -764,6 +787,7 @@
                                 onclick="addToCartWithQty('夏雪黑鑽禮盒(5-6粒)', 1500, 'qty-gb2')">加入購物車</button>
                         </div>
 
+                        <!-- 第三款：綜合黑鑽禮盒 -->
                         <div class="product-card" style="background: white;">
                             <h4>綜合黑鑽禮盒</h4>
                             <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">愛文+夏雪 5-6 粒</p>
@@ -778,6 +802,7 @@
                                 onclick="addToCartWithQty('綜合黑鑽禮盒(愛+夏)', 1500, 'qty-gb3')">加入購物車</button>
                         </div>
 
+                        <!-- 第四款：芒目愛禮盒(愛文) -->
                         <div class="product-card" style="background: white;">
                             <h4>芒目愛禮盒(愛文)</h4>
                             <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">7-9 粒 (隨機出貨)</p>
