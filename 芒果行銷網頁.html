@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今夏果園｜頂級屏東芒果預購</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=PingFang+TC:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        /* 基礎與色彩變數 */
+        :root {
+            --primary-orange: #F97316;
+            --primary-green: #14532D;
+            --bg-light: #FFFAF0;
+            --text-dark: #27272A;
+            --danger-red: #DC2626;
+            --border-color: #E5E7EB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .serif {
+            font-family: 'Noto Serif TC', serif;
+        }
+
+        /* 頂部公告與 Hero 橫幅 */
+        .top-banner {
+            background-color: #FEF3C7;
+            /* 溫潤芒果黃 */
+            color: #78350F;
+            /* 深咖啡褐色 */
+            text-align: center;
+            padding: 10px 1rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-bottom: 1px solid #FDE68A;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            z-index: 100;
+        }
+
+        /* 升級版：極緻吸睛精品橫幅 */
+        header {
+            /* 1. 這裡加入了雙層微調遮罩，上方微綠帶出職人感，下方深色確保文字辨識度 */
+            background: linear-gradient(rgba(20, 83, 45, 0.4), rgba(15, 23, 42, 0.8)),
+                url('./images/banner-bg.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+            /* 加高整體比例，更有大牌官網的氣勢 */
+            position: relative;
+            background-attachment: scroll;
+            /* 在手機上滾動時保持流暢體驗 */
+        }
+
+        header h1 {
+            color: #FDE68A;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 區塊共用樣式 */
+        section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+        }
+
+        h2 {
+            color: var(--primary-green);
+            border-bottom: 2px solid var(--primary-orange);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        /* 果園叮嚀與分級介紹 */
+        .intro-text {
+            text-align: center;
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .grading-container {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .grade-card {
+            flex: 1;
+            min-width: 280px;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: #FAFAFA;
+        }
+
+        .grade-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .grade-card ul {
+            padding-left: 1.5rem;
+            color: #555;
+        }
+
+        .grade-card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* 摺疊選單 (購買須知) */
+        details {
+            background: #F8FAFC;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1rem 1.5rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary-green);
+            cursor: pointer;
+            user-select: none;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--primary-orange);
+            transition: transform 0.3s;
+        }
+
+        details[open] summary:after {
+            transform: rotate(180deg);
+        }
+
+        .details-content {
+            padding: 0 1.5rem 1.5rem;
+            color: #555;
+        }
+
+        .details-content ul {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        /* 產品與購物車樣式 */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-card {
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+            border-color: var(--primary-orange);
+        }
+
+        .price {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            margin: 1rem 0;
+            font-family: 'Noto Serif TC', serif;
+        }
+
+        button {
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.2s;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(249, 115, 22, 0.2);
+        }
+
+        button:hover {
+            background-color: #EA580C;
+            box-shadow: 0 6px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .cart-summary {
+            background: #FFF7ED;
+            border: 1px solid #FFEDD5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #FDBA74;
+            padding-bottom: 0.5rem;
+        }
+
+        .btn-clear {
+            background-color: transparent;
+            color: var(--danger-red);
+            border: 1px solid var(--danger-red);
+            width: auto;
+            padding: 5px 10px;
+            font-size: 0.85rem;
+            box-shadow: none;
+        }
+
+        .btn-clear:hover {
+            background-color: #FEE2E2;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed #E5E7EB;
+        }
+
+        .btn-delete {
+            background-color: transparent;
+            color: var(--danger-red);
+            width: auto;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            box-shadow: none;
+        }
+
+        .btn-delete:hover {
+            background-color: #FEE2E2;
+        }
+
+        .total-price {
+            text-align: right;
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            margin-top: 1rem;
+        }
+
+        /* 匯款與訂購步驟區 */
+        .step-box {
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-box h3 {
+            color: #047857;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .step-list {
+            line-height: 2;
+            color: #065F46;
+        }
+
+        .bank-info {
+            background: #F3F4F6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px dashed #9CA3AF;
+        }
+
+        .bank-info h3 {
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+
+        .bank-info p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-orange);
+            letter-spacing: 1px;
+        }
+
+        /* 表單樣式 */
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #4B5563;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background: #F9FAFB;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        .notice {
+            font-size: 0.95rem;
+            color: #92400E;
+            background: #FEF3C7;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #F59E0B;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* 查詢區塊 */
+        #result-area {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: none;
+            line-height: 1.8;
+        }
+
+        .success-box {
+            background-color: #ECFDF5;
+            color: #065F46;
+            border: 1px solid #6EE7B7;
+        }
+
+        .error-box {
+            background-color: #FEF2F2;
+            color: #991B1B;
+            border: 1px solid #FCA5A5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-banner">🚚 全台免運費‼️ 自然熟成、堅持不催收、不搶收 (6/1開始陸續出貨，7-21個工作天)</div>
+
+    <header>
+        <h1>今夏果園</h1>
+        <p>沐浴在屏東烈日下的紅寶石，每一口都是職人堅持的在欉紅</p>
+    </header>
+
+    <main>
+        <!-- 購買前詳閱：果園叮嚀與分級 -->
+        <section id="guidelines">
+            <h2><strong>咪那桑～每年最期待的芒果季來了！</strong></h2>
+            <div class="intro-text">
+                <p>我們會依照果實成熟狀態採收，並經過人工挑選後新鮮出貨。芒果屬天然農產品，無法完全一致，每顆在外觀、色澤、大小與熟成速度上，都會有些微差異。<br>下單前請先詳閱以下說明，感謝您的理解與支持！</p>
+            </div>
+
+            <div class="grading-container">
+                <div class="grade-card">
+                    <h4 style="color: #0369A1;">💎 鑽石級｜送禮推薦</h4>
+                    <ul>
+                        <li>外觀較均勻</li>
+                        <li>果型與色澤整體較佳</li>
+                        <li>瑕疵較少，送禮極致體面</li>
+                    </ul>
+                </div>
+                <div class="grade-card">
+                    <h4 style="color: #B45309;">🔥 寶石級｜自用首選</h4>
+                    <ul>
+                        <li>甜度與風味同樣優秀</li>
+                        <li>外觀可能有自然斑點或些微色差</li>
+                        <li>高 CP 值、份量更滿足</li>
+                    </ul>
+                </div>
+            </div>
+
+            <details>
+                <summary>🥭 關於天然水果</summary>
+                <div class="details-content">
+                    水果在生長過程中，多少都會留下自然痕跡。以下狀況皆屬正常現象，不影響食用品質：
+                    <ul>
+                        <li>表皮斑點與色澤不均</li>
+                        <li>細微擦痕或果皮小黑點</li>
+                        <li>每顆熟成速度不同</li>
+                    </ul>
+                    我們會盡力挑選品質穩定的芒果出貨，但無法保證每顆外觀完全零瑕疵。<strong>介意者與完美主義者請斟酌下單，謝謝。</strong>
+                </div>
+            </details>
+
+            <details>
+                <summary>🚚 配送與出貨說明</summary>
+                <div class="details-content">
+                    <ul>
+                        <li><strong>黑貓宅急便 常溫配送：</strong>出貨後約 1–2 天送達。</li>
+                        <li><strong>產地直送：</strong>當日現採當日寄送，依當日採收果況依序出貨。</li>
+                        <li><strong>注意事項：</strong>若遇連續下雨、颱風、節慶物流繁忙等情況，配送時間可能稍有延遲。</li>
+                        <li>水果宅配過程中，可能因運送碰撞出現些微壓痕，屬正常配送情形。</li>
+                        <li>⚠️ 恕無法指定到貨日期和時間 (結帳時可勾選六日不收貨)。</li>
+                        <li><strong style="color:red;">請確保收件資訊正確，收件電話保持暢通，若無法成功配送物流會將包裹直接銷毁，不做退款也無法理賠。</strong></li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>🌡️ 保存方式</summary>
+                <div class="details-content">
+                    收到貨需<strong>立即打開箱子</strong>，將芒果放置於陰涼通風處，避免悶熱與陽光直射。<br><br>
+                    待 1-3 天後，果皮油亮、散發香氣、表面微軟時，再放冰箱冷藏，並請盡快食用完畢。
+                </div>
+            </details>
+
+            <details>
+                <summary>🛡️ 售後說明</summary>
+                <div class="details-content">
+                    生鮮商品不適用七天鑑賞期。售出後恕不接受「個人口感因素」退換貨。<br><br>
+                    若收到商品時有：<strong>嚴重撞傷、大範圍腐爛、配送異常損壞</strong>。<br>
+                    請於<strong>簽收後 6 小時內</strong>聯繫我們協助處理。<br>
+                    ⚠️ 為保障雙方權益，需有<strong>「全程開箱影片」</strong>，並請保留完整商品與外箱。
+                </div>
+            </details>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 精簡洗鍊版：得獎紀錄與評鑑認證分區 -->
+        <!-- ========================================== -->
+        <section id="awards" style="background: white; border: 1px solid var(--border-color); padding: 2.5rem;">
+            <h2
+                style="color: var(--primary-green); border-bottom: 2px solid var(--primary-orange); padding-bottom: 0.8rem; margin-bottom: 2rem; font-size: 1.8rem; text-align: center; font-weight: 700;">
+                🏆 榮譽肯定｜榮獲屏東愛文芒果評鑑冠軍殊榮
+            </h2>
+
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+
+                <!-- 上方：雙照片並排網格 -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <!-- 第一張照片（award.jpg） -->
+                    <div
+                        style="box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);">
+                        <div style="width: 100%; aspect-ratio: 4 / 3; overflow: hidden;">
+                            <img src="./images/award.jpg" alt="芒果評鑑得獎照片"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                    </div>
+
+                    <!-- 第二張照片（award-2.jpg） -->
+                    <div
+                        style="box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color);">
+                        <div style="width: 100%; aspect-ratio: 4 / 3; overflow: hidden;">
+                            <img src="./images/award-2.jpg" alt="果園採收實照"
+                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 下方：精簡客觀的說明內文 -->
+                <div style="max-width: 720px; margin: 0 auto; text-align: center;">
+                    <p
+                        style="color: #4B5563; font-size: 1.05rem; line-height: 1.8; text-align: justify; margin-bottom: 1.5rem;">
+                        我們參與由屏東縣政府主辦的年度優質愛文芒果評鑑，在產官學界專家的嚴格盲測品評下，憑藉著果實色澤、肉質細緻度與濃郁果香，榮獲111年屏東縣愛文芒果評鑑 冠軍
+                        殊榮。這份肯定，是我們對您最誠摯的品質承諾。
+                    </p>
+
+                    <!-- 核心三大認證（乾淨排版） -->
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: left; margin-top: 1.5rem;">
+                        <div
+                            style="background: #FAFAFA; padding: 12px 15px; border-radius: 6px; border-left: 3px solid var(--primary-orange);">
+                            <span
+                                style="color: var(--primary-green); font-weight: bold; display: block; margin-bottom: 2px;">🏅
+                                縣府評鑑冠軍</span>
+                            <span style="color: #6B7280; font-size: 0.88rem;">經專家多輪盲測評分，風味與外觀獲得頂級肯定。</span>
+                        </div>
+                        <div
+                            style="background: #FAFAFA; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #10B981;">
+                            <span style="color: #047857; font-weight: bold; display: block; margin-bottom: 2px;">🧪
+                                嚴格藥檢合格</span>
+                            <span style="color: #6B7280; font-size: 0.88rem;">出貨果品均通過符合標準的農藥殘留檢驗，安心有保障。</span>
+                        </div>
+                        <div
+                            style="background: #FAFAFA; padding: 12px 15px; border-radius: 6px; border-left: 3px solid #F59E0B;">
+                            <span style="color: #B45309; font-weight: bold; display: block; margin-bottom: 2px;">🌱
+                                自然熟成</span>
+                            <span style="color: #6B7280; font-size: 0.88rem;">堅持自然熟成，讓您吃到最純粹的天然甜味。</span>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+
+
+        <!-- 產品選購區 -->
+        <section id="products">
+
+            <!-- ========================================== -->
+            <!-- 新增：精選商品照片展示分區 -->
+            <!-- ========================================== -->
+            <h3
+                style="margin-bottom: 1.5rem; color: var(--primary-green); border-left: 4px solid var(--primary-orange); padding-left: 10px; font-size: 1.5rem;">
+                📸 產地直送｜精選果品實照展示</h3>
+
+            <div class="product-list"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+
+                <div
+                    style="text-align: center; background: #FAFAFA; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div
+                        style="width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 6px; margin-bottom: 0.5rem;">
+                        <img src="./images/show-1.jpg" alt="愛文黑鑽禮盒"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <strong
+                        style="font-size: 0.95rem; color: var(--primary-green); display: block; margin-top: auto;">愛文黑鑽禮盒</strong>
+                </div>
+
+                <div
+                    style="text-align: center; background: #FAFAFA; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div
+                        style="width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 6px; margin-bottom: 0.5rem;">
+                        <img src="./images/show-2.jpg" alt="夏雪黑鑽禮盒"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <strong
+                        style="font-size: 0.95rem; color: var(--primary-green); display: block; margin-top: auto;">夏雪黑鑽禮盒</strong>
+                </div>
+
+                <div
+                    style="text-align: center; background: #FAFAFA; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div
+                        style="width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 6px; margin-bottom: 0.5rem;">
+                        <img src="./images/show-3.jpg" alt="綜合黑鑽禮盒（愛文＋夏雪）"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <strong
+                        style="font-size: 0.95rem; color: var(--primary-green); display: block; margin-top: auto;">綜合黑鑽禮盒（愛文＋夏雪）</strong>
+                </div>
+
+                <div
+                    style="text-align: center; background: #FAFAFA; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div
+                        style="width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 6px; margin-bottom: 0.5rem;">
+                        <img src="./images/show-4.jpg" alt="芒目愛禮盒"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <strong
+                        style="font-size: 0.95rem; color: var(--primary-green); display: block; margin-top: auto;">芒目愛禮盒</strong>
+                </div>
+
+                <div
+                    style="text-align: center; background: #FAFAFA; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div
+                        style="width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 6px; margin-bottom: 0.5rem;">
+                        <img src="./images/show-5.jpg" alt="鑽石級愛文"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <strong
+                        style="font-size: 0.95rem; color: var(--primary-green); display: block; margin-top: auto;">鑽石級愛文</strong>
+                </div>
+
+            </div>
+
+            <!-- 備註說明字樣 -->
+            <p style="text-align: right; color: #71717A; font-size: 0.85rem; margin-bottom: 3rem; font-style: italic;">
+                * 註：以上皆為果園實體拍攝之精選照片，天然農產品外觀每顆無法完全一致，商品圖片僅供參考。
+            </p>
+
+
+            <!-- 產品選購區 -->
+            <section id="products">
+                <h2
+                    style="color: var(--primary-orange); border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; font-size: 2rem;">
+                    🔥 最划算 | 重度芒果控 首選！</h2>
+                <p
+                    style="text-align: center; color: #92400E; font-weight: bold; font-size: 1.2rem; margin-bottom: 2rem; border-bottom: 2px solid #FDE68A; padding-bottom: 1rem;">
+                    📍 重量為 10 斤 (6公斤) / 箱</p>
+
+                <h3
+                    style="margin-top: 1.5rem; margin-bottom: 1rem; color: var(--primary-green); border-left: 4px solid var(--primary-orange); padding-left: 10px;">
+                    💎 鑽石級愛文</h3>
+                <div class="product-list">
+                    <div class="product-card">
+                        <h4>鑽石級愛文 (12顆)</h4>
+                        <div class="price">NT$ 1,900</div>
+                        <div
+                            style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                            <label for="qty-d12">數量：</label>
+                            <input type="number" id="qty-d12" value="1" min="1"
+                                style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <button type="button" onclick="addToCartWithQty('鑽石級愛文(12顆)', 1900, 'qty-d12')">加入購物車</button>
+                    </div>
+                    <div class="product-card">
+                        <h4>鑽石級愛文 (15顆)</h4>
+                        <div class="price">NT$ 1,700</div>
+                        <div
+                            style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                            <label for="qty-d15">數量：</label>
+                            <input type="number" id="qty-d15" value="1" min="1"
+                                style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <button type="button" onclick="addToCartWithQty('鑽石級愛文(15顆)', 1700, 'qty-d15')">加入購物車</button>
+                    </div>
+                    <div class="product-card">
+                        <h4>鑽石級愛文 (18顆)</h4>
+                        <div class="price">NT$ 1,500</div>
+                        <div
+                            style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                            <label for="qty-d18">數量：</label>
+                            <input type="number" id="qty-d18" value="1" min="1"
+                                style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <button type="button" onclick="addToCartWithQty('鑽石級愛文(18顆)', 1500, 'qty-d18')">加入購物車</button>
+                    </div>
+                </div>
+
+                <h3
+                    style="margin-top: 2.5rem; margin-bottom: 1rem; color: var(--primary-green); border-left: 4px solid var(--primary-orange); padding-left: 10px;">
+                    ✨ 寶石級愛文</h3>
+                <div class="product-list">
+                    <div class="product-card">
+                        <h4>寶石級愛文 (12顆)</h4>
+                        <div class="price">NT$ 1,700</div>
+                        <div
+                            style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                            <label for="qty-g12">數量：</label>
+                            <input type="number" id="qty-g12" value="1" min="1"
+                                style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <button type="button" onclick="addToCartWithQty('寶石級愛文(12顆)', 1700, 'qty-g12')">加入購物車</button>
+                    </div>
+                    <div class="product-card">
+                        <h4>寶石級愛文 (15顆)</h4>
+                        <div class="price">NT$ 1,500</div>
+                        <div
+                            style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                            <label for="qty-g15">數量：</label>
+                            <input type="number" id="qty-g15" value="1" min="1"
+                                style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <button type="button" onclick="addToCartWithQty('寶石級愛文(15顆)', 1500, 'qty-g15')">加入購物車</button>
+                    </div>
+                    <div class="product-card">
+                        <h4>寶石級愛文 (18顆)</h4>
+                        <div class="price">NT$ 1,300</div>
+                        <div
+                            style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                            <label for="qty-g18">數量：</label>
+                            <input type="number" id="qty-g18" value="1" min="1"
+                                style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                        </div>
+                        <button type="button" onclick="addToCartWithQty('寶石級愛文(18顆)', 1300, 'qty-g18')">加入購物車</button>
+                    </div>
+                </div>
+
+                <div
+                    style="background-color: #FEF3C7; padding: 2rem; border-radius: 12px; margin-top: 3rem; border: 2px solid #FDE68A;">
+                    <h3 style="margin-bottom: 0.5rem; color: #B45309; text-align: center; font-size: 1.8rem;">🔥 最熱銷 |
+                        今夏禮盒
+                    </h3>
+                    <p
+                        style="text-align: center; color: #92400E; font-weight: bold; margin-bottom: 0.5rem; font-size: 1.3rem;">
+                        「我有芒果，你有面子！」</p>
+                    <p
+                        style="text-align: center; color: #92400E; font-size: 1rem; margin-bottom: 2rem; border-bottom: 1px dashed #D97706; padding-bottom: 1rem;">
+                        📍 禮盒重量皆為 5 斤 (3公斤) / 盒</p>
+
+                    <div class="product-list">
+                        <div class="product-card" style="background: white;">
+                            <h4>愛文黑鑽禮盒</h4>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">5-6 粒 (隨機出貨)</p>
+                            <div class="price">NT$ 1,500</div>
+                            <div
+                                style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                                <label for="qty-gb1">數量：</label>
+                                <input type="number" id="qty-gb1" value="1" min="1"
+                                    style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                            </div>
+                            <button type="button"
+                                onclick="addToCartWithQty('愛文黑鑽禮盒(5-6粒)', 1500, 'qty-gb1')">加入購物車</button>
+                        </div>
+
+                        <div class="product-card" style="background: white;">
+                            <h4>夏雪黑鑽禮盒</h4>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">5-6 粒 (隨機出貨)</p>
+                            <div class="price">NT$ 1,500</div>
+                            <div
+                                style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                                <label for="qty-gb2">數量：</label>
+                                <input type="number" id="qty-gb2" value="1" min="1"
+                                    style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                            </div>
+                            <button type="button"
+                                onclick="addToCartWithQty('夏雪黑鑽禮盒(5-6粒)', 1500, 'qty-gb2')">加入購物車</button>
+                        </div>
+
+                        <div class="product-card" style="background: white;">
+                            <h4>綜合黑鑽禮盒</h4>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">愛文+夏雪 5-6 粒</p>
+                            <div class="price">NT$ 1,500</div>
+                            <div
+                                style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                                <label for="qty-gb3">數量：</label>
+                                <input type="number" id="qty-gb3" value="1" min="1"
+                                    style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                            </div>
+                            <button type="button"
+                                onclick="addToCartWithQty('綜合黑鑽禮盒(愛+夏)', 1500, 'qty-gb3')">加入購物車</button>
+                        </div>
+
+                        <div class="product-card" style="background: white;">
+                            <h4>芒目愛禮盒(愛文)</h4>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">7-9 粒 (隨機出貨)</p>
+                            <div class="price">NT$ 1,200</div>
+                            <div
+                                style="margin-bottom: 15px; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                                <label for="qty-gb4">數量：</label>
+                                <input type="number" id="qty-gb4" value="1" min="1"
+                                    style="width: 70px; padding: 8px; text-align: center; border:1px solid #ccc; border-radius:4px;">
+                            </div>
+                            <button type="button"
+                                onclick="addToCartWithQty('芒目愛禮盒(7-9粒)', 1200, 'qty-gb4')">加入購物車</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notice" style="margin-top: 2rem;">
+                    📍 <strong>多位收件人提醒：</strong> 為確保物流正確，每筆訂單僅限填寫一個寄送地址。若有多位收件人請分開下單，多筆訂單可一併結帳，或加入官方 LINE 將有專人為您服務。
+                </div>
+            </section>
+
+            <!-- 訂購流程與匯款資訊 -->
+            <section id="payment-info">
+                <h2>💳 訂購步驟與匯款資訊</h2>
+
+                <div class="step-box">
+                    <h3>| 訂購步驟 |</h3>
+                    <div class="step-list">
+                        <strong>① 送出訂單</strong><br>
+                        <strong>② 加入官方 LINE (@107wvakb)回傳匯款資訊</strong><br>
+                        <span style="color:#666; font-size:0.9rem; padding-left:1.5rem; display:block;">(請告知：訂購人姓名 /
+                            匯款帳號後五碼)</span>
+                        <strong>③ 確認付款完成後才算訂購成功</strong><br>
+                        <strong>④ 依當日採收果況依序出貨</strong><br>
+                        <strong>⑤ 出貨後系統提供宅配單號</strong> (可於網頁最下方查詢)
+                    </div>
+                </div>
+
+                <div class="bank-info">
+                    <h3>| 匯款資訊 |</h3>
+                    <p>戶名：陳凱耀</p>
+                    <p>帳號：(700) 00713970392503</p>
+                </div>
+            </section>
+
+            <!-- 結帳與收件表單 -->
+            <section id="checkout">
+                <h2>📝 結帳與收件資訊</h2>
+
+                <div class="cart-summary" id="cartSummary">
+                    <p style="color: #9CA3AF; text-align: center; font-size: 1.1rem;">您的購物車目前是空的</p>
+                </div>
+
+                <form id="orderForm" onsubmit="submitOrder(event)">
+                    <h3 style="margin: 1.5rem 0 1rem; color: var(--primary-green);">👤 訂購人資訊</h3>
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input type="text" id="orderName" required placeholder="如：王大明">
+                    </div>
+                    <div class="form-group">
+                        <label>手機電話</label>
+                        <input type="tel" id="orderPhone" required placeholder="如：0912345678">
+                    </div>
+
+                    <h3 style="margin: 2.5rem 0 1rem; color: var(--primary-green);">📦 收件人資訊</h3>
+                    <div style="margin-bottom: 1.5rem; background: #F3F4F6; padding: 10px; border-radius: 6px;">
+                        <input type="checkbox" id="sameAsOrderer" onchange="copyOrderer()">
+                        <label for="sameAsOrderer" style="display: inline; cursor: pointer; color:#4B5563;">同訂購人
+                            (自動帶入姓名與電話)</label>
+                    </div>
+                    <div class="form-group">
+                        <label>收件人姓名</label>
+                        <input type="text" id="recipientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>收件人電話</label>
+                        <input type="tel" id="recipientPhone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>收件完整地址</label>
+                        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                            <select id="recipientCity" required onchange="updateDistricts()" style="flex: 1;">
+                                <option value="">選擇縣市</option>
+                            </select>
+                            <select id="recipientDistrict" required style="flex: 1;">
+                                <option value="">選擇鄉鎮市區</option>
+                            </select>
+                        </div>
+                        <input type="text" id="recipientStreet" required placeholder="如：中正路123號">
+                    </div>
+
+                    <div
+                        style="margin: 1.5rem 0; padding: 15px; border: 1px solid #FCA5A5; background: #FEF2F2; border-radius: 6px;">
+                        <input type="checkbox" id="noWeekendDelivery">
+                        <label for="noWeekendDelivery"
+                            style="display:inline; color: #991B1B; font-weight:bold; cursor: pointer;">
+                            ⚠️ 週末 (六、日) 不方便收貨
+                        </label>
+                        <p style="font-size:0.85rem; color:#666; margin-top:5px; margin-left:25px;">
+                            打勾後，系統會自動在訂單備註中為您特別標示。
+                        </p>
+                    </div>
+
+                    <!-- 新增：訂單備註區塊 -->
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label>📝 訂單備註 (選填)</label>
+                        <textarea id="orderRemarks" rows="3" placeholder="有什麼想告訴我們的嗎？(例如：訂單收據、請大樓管理員代收等)"></textarea>
+                    </div>
+
+                    <div class="notice" style="margin-top: 2rem;">
+                        ⚠️ <strong>下單即代表同意本網站之訂購與配送說明。若遇不可抗力天氣因素，果園保有最終出貨權利。</strong>
+                    </div>
+
+                    <button type="submit" id="submitBtn" style="font-size: 1.2rem; padding: 15px;">確認無誤，送出訂單</button>
+                </form>
+            </section>
+
+            <!-- 零個資查詢 -->
+            <section id="tracking">
+                <h2>🚚 訂單進度查詢</h2>
+                <p style="margin-bottom: 1.5rem; text-align: center; color: #6B7280;">
+                    透過本系統查詢訂單進度，您只需輸入訂購人姓名與電話，即可查詢您的訂單狀態與物流資訊。
+                </p>
+
+                <div class="form-group">
+                    <input type="text" id="searchName" placeholder="請輸入訂購人姓名" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="searchPhone" placeholder="請輸入聯絡電話" required>
+                </div>
+                <button type="button" onclick="queryOrder()"
+                    style="background-color: var(--primary-green);">查詢出貨進度</button>
+
+                <div id="result-area"></div>
+            </section>
+
+    </main>
+
+    <footer style="text-align: center; padding: 3rem; color: #9CA3AF; font-size: 0.9rem;">
+        <p>&copy; 2026 今夏果園 All Rights Reserved. | Privacy-by-Design</p>
+    </footer>
+
+    <script>
+        // ==========================================
+        // 核心設定區 (請務必替換為您的 API URL)
+        // ==========================================
+        const API_URL = "https://script.google.com/macros/s/AKfycbxTPz13IgRJGTGhmNBxvg0ROcutYnJabyfSqYRpPWEaMv36kxJ8DTAz8tkYZy0GwoJstQ/exec";
+        const SYSTEM_SALT = "SecretMango2026";
+
+        // 🔒 安全防護小函數：過濾掉惡意的 HTML 標籤，防止 XSS 攻擊
+        function cleanInput(text) {
+            if (!text) return "";
+            return text.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;").trim();
+        }
+
+        // ==========================================
+        // 台灣縣市與鄉鎮區資料庫
+        // ==========================================
+        const taiwanRegions = {
+            "台北市": ["中正區", "大同區", "中山區", "松山區", "大安區", "萬華區", "信義區", "士林區", "北投區", "內湖區", "南港區", "文山區"],
+            "新北市": ["萬里區", "金山區", "板橋區", "汐止區", "深坑區", "石碇區", "瑞芳區", "平溪區", "雙溪區", "貢寮區", "新店區", "坪林區", "烏來區", "永和區", "中和區", "土城區", "三峽區", "樹林區", "鶯歌區", "三重區", "新莊區", "泰山區", "林口區", "蘆洲區", "五股區", "八里區", "淡水區", "三芝區", "石門區"],
+            "桃園市": ["中壢區", "平鎮區", "龍潭區", "楊梅區", "新屋區", "觀音區", "桃園區", "龜山區", "八德區", "大溪區", "復興區", "大園區", "蘆竹區"],
+            "台中市": ["中區", "東區", "南區", "西區", "北區", "北屯區", "西屯區", "南屯區", "太平區", "大里區", "霧峰區", "烏日區", "豐原區", "后里區", "石岡區", "東勢區", "和平區", "新社區", "潭子區", "大雅區", "神岡區", "大肚區", "沙鹿區", "龍井區", "梧棲區", "清水區", "大甲區", "外埔區", "大安區"],
+            "台南市": ["中西區", "東區", "南區", "北區", "安平區", "安南區", "永康區", "歸仁區", "新化區", "左鎮區", "玉井區", "楠西區", "南化區", "仁德區", "關廟區", "龍崎區", "官田區", "麻豆區", "佳里區", "西港區", "七股區", "將軍區", "學甲區", "北門區", "新營區", "後壁區", "白河區", "東山區", "六甲區", "下營區", "柳營區", "鹽水區", "善化區", "大內區", "山上區", "新市區", "安定區"],
+            "高雄市": ["楠梓區", "左營區", "鼓山區", "三民區", "鹽埕區", "前金區", "新興區", "苓雅區", "前鎮區", "旗津區", "小港區", "鳳山區", "林園區", "大寮區", "大樹區", "大社區", "仁武區", "鳥松區", "岡山區", "橋頭區", "燕巢區", "田寮區", "阿蓮區", "路竹區", "湖內區", "茄萣區", "永安區", "彌陀區", "梓官區", "旗山區", "美濃區", "六龜區", "甲仙區", "杉林區", "內門區", "茂林區", "桃源區", "那瑪夏區"],
+            "屏東縣": ["屏東市", "潮州鎮", "東港鎮", "恆春鎮", "萬丹鄉", "長治鄉", "麟洛鄉", "九如鄉", "里港鄉", "鹽埔鄉", "高樹鄉", "萬巒鄉", "內埔鄉", "竹田鄉", "新埤鄉", "枋寮鄉", "新園鄉", "崁頂鄉", "林邊鄉", "南州鄉", "佳冬鄉", "琉球鄉", "車城鄉", "滿州鄉", "枋山鄉", "三地門鄉", "霧臺鄉", "瑪家鄉", "泰武鄉", "來義鄉", "春日鄉", "獅子鄉", "牡丹鄉"],
+            "基隆市": ["仁愛區", "信義區", "中正區", "中山區", "安樂區", "暖暖區", "七堵區"],
+            "新竹市": ["東區", "北區", "香山區"],
+            "嘉義市": ["東區", "西區"],
+            "新竹縣": ["竹北市", "竹東鎮", "新埔鎮", "關西鎮", "湖口鄉", "新豐鄉", "芎林鄉", "橫山鄉", "北埔鄉", "寶山鄉", "峨眉鄉", "尖石鄉", "五峰鄉"],
+            "苗栗縣": ["苗栗市", "苑裡鎮", "通霄鎮", "竹南鎮", "頭份市", "後龍鎮", "卓蘭鎮", "大湖鄉", "公館鄉", "銅鑼鄉", "南庄鄉", "頭屋鄉", "三義鄉", "西湖鄉", "造橋鄉", "三灣鄉", "獅潭鄉", "泰安鄉"],
+            "彰化縣": ["彰化市", "鹿港鎮", "和美鎮", "線西鄉", "伸港鄉", "福興鄉", "秀水鄉", "花壇鄉", "芬園鄉", "員林市", "溪湖鎮", "田中鎮", "大村鄉", "埔鹽鄉", "埔心鄉", "永靖鄉", "社頭鄉", "二水鄉", "北斗鎮", "二林鎮", "田尾鄉", "埤頭鄉", "芳苑鄉", "大城鄉", "竹塘鄉", "溪州鄉"],
+            "南投縣": ["南投市", "埔里鎮", "草屯鎮", "竹山鎮", "集集鎮", "名間鄉", "鹿谷鄉", "中寮鄉", "魚池鄉", "國姓鄉", "水里鄉", "信義鄉", "仁愛鄉"],
+            "雲林縣": ["斗六市", "斗南鎮", "虎尾鎮", "西螺鎮", "土庫鎮", "北港鎮", "古坑鄉", "大埤鄉", "莿桐鄉", "林內鄉", "二崙鄉", "崙背鄉", "麥寮鄉", "東勢鄉", "褒忠鄉", "臺西鄉", "元長鄉", "四湖鄉", "口湖鄉", "水林鄉"],
+            "嘉義縣": ["太保市", "朴子市", "布袋鎮", "大林鎮", "民雄鄉", "溪口鄉", "新港鄉", "六腳鄉", "東石鄉", "義竹鄉", "鹿草鄉", "水上鄉", "中埔鄉", "竹崎鄉", "梅山鄉", "番路鄉", "大埔鄉", "阿里山鄉"],
+            "宜蘭縣": ["宜蘭市", "羅東鎮", "蘇澳鎮", "頭城鎮", "礁溪鄉", "壯圍鄉", "員山鄉", "冬山鄉", "五結鄉", "三星鄉", "大同鄉", "南澳鄉"],
+            "花蓮縣": ["花蓮市", "鳳林鎮", "玉里鎮", "新城鄉", "吉安鄉", "壽豐鄉", "光復鄉", "豐濱鄉", "瑞穗鄉", "富里鄉", "秀林鄉", "萬榮鄉", "卓溪鄉"],
+            "台東縣": ["臺東市", "成功鎮", "關山鎮", "卑南鄉", "大武鄉", "太麻里鄉", "東河鄉", "長濱鄉", "鹿野鄉", "池上鄉", "綠島鄉", "延平鄉", "海端鄉", "達仁鄉", "金峰鄉", "蘭嶼鄉"],
+            "澎湖縣": ["馬公市", "湖西鄉", "白沙鄉", "西嶼鄉", "望安鄉", "七美鄉"],
+            "金門縣": ["金城鎮", "金湖鎮", "金沙鎮", "金寧鄉", "烈嶼鄉", "烏坵鄉"],
+            "連江縣": ["南竿鄉", "北竿鄉", "莒光鄉", "東引鄉"]
+        };
+
+        window.onload = function () {
+            const citySelect = document.getElementById("recipientCity");
+            for (let city in taiwanRegions) {
+                let option = document.createElement("option");
+                option.value = city;
+                option.text = city;
+                citySelect.appendChild(option);
+            }
+        };
+
+        function updateDistricts() {
+            const citySelect = document.getElementById("recipientCity");
+            const districtSelect = document.getElementById("recipientDistrict");
+            const selectedCity = citySelect.value;
+
+            districtSelect.innerHTML = '<option value="">選擇鄉鎮市區</option>';
+            if (selectedCity && taiwanRegions[selectedCity]) {
+                taiwanRegions[selectedCity].forEach(function (district) {
+                    let option = document.createElement("option");
+                    option.value = district;
+                    option.text = district;
+                    districtSelect.appendChild(option);
+                });
+            }
+        }
+
+        // ==========================================
+        // 購物車與數量邏輯
+        // ==========================================
+        let cart = [];
+
+        function addToCartWithQty(itemName, price, inputId) {
+            const qtyInput = document.getElementById(inputId);
+            let qty = parseInt(qtyInput.value, 10);
+
+            if (isNaN(qty) || qty < 1) {
+                alert("請輸入有效的數量！");
+                return;
+            }
+
+            let existingItem = cart.find(i => i.name === itemName);
+            if (existingItem) {
+                existingItem.qty += qty;
+            } else {
+                cart.push({ name: itemName, price: price, qty: qty });
+            }
+
+            qtyInput.value = 1;
+            renderCart();
+            alert(`✅ 已將 ${qty} 箱 ${itemName} 加入購物車！\n請至下方填寫收件資訊結帳。`);
+        }
+
+        function updateCartQty(index, newQty) {
+            newQty = parseInt(newQty, 10);
+            if (newQty < 1) {
+                removeItem(index);
+            } else {
+                cart[index].qty = newQty;
+                renderCart();
+            }
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        function clearCart() {
+            if (confirm("確定要清空購物車嗎？")) {
+                cart = [];
+                renderCart();
+            }
+        }
+
+        function renderCart() {
+            const cartDiv = document.getElementById('cartSummary');
+            if (cart.length === 0) {
+                cartDiv.innerHTML = '<p style="color: #9CA3AF; text-align: center; font-size: 1.1rem;">您的購物車目前是空的</p>';
+                return;
+            }
+
+            let html = `
+                <div class="cart-header">
+                    <strong style="color:#92400E; font-size:1.2rem;">購物明細</strong>
+                    <button type="button" class="btn-clear" onclick="clearCart()">🗑️ 清空購物車</button>
+                </div>
+            `;
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                let subtotal = item.price * item.qty;
+                total += subtotal;
+                html += `
+                    <div class="cart-item">
+                        <span style="font-weight:600; color:#374151;">${item.name}</span>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="number" value="${item.qty}" min="1" onchange="updateCartQty(${index}, this.value)" style="width: 55px; text-align: center; padding: 5px; border:1px solid #D1D5DB; border-radius:4px;">
+                            <span style="min-width: 90px; text-align: right; color:#4B5563;">NT$ ${subtotal.toLocaleString()}</span>
+                            <button type="button" class="btn-delete" onclick="removeItem(${index})">❌</button>
+                        </div>
+                    </div>`;
+            });
+            html += `<div class="total-price">總計金額：NT$ ${total.toLocaleString()}</div>`;
+            cartDiv.innerHTML = html;
+        }
+
+        // ==========================================
+        // 表單與送出訂單邏輯 (新增備註處理與安全防護)
+        // ==========================================
+        function copyOrderer() {
+            const isChecked = document.getElementById('sameAsOrderer').checked;
+            if (isChecked) {
+                document.getElementById('recipientName').value = document.getElementById('orderName').value;
+                document.getElementById('recipientPhone').value = document.getElementById('orderPhone').value;
+            } else {
+                document.getElementById('recipientName').value = '';
+                document.getElementById('recipientPhone').value = '';
+            }
+        }
+
+        async function submitOrder(e) {
+            e.preventDefault();
+
+            if (cart.length === 0) {
+                alert("🛒 請先將商品加入購物車再結帳唷！");
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.innerText = "訂單資料傳送中...";
+            submitBtn.disabled = true;
+
+            const itemsSummary = cart.map(i => `${i.name} x${i.qty}`).join(' , ');
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            // 🔒 組合地址時，將每個部分都套用 cleanInput() 過濾
+            let fullAddress = cleanInput(document.getElementById('recipientCity').value) +
+                cleanInput(document.getElementById('recipientDistrict').value) +
+                cleanInput(document.getElementById('recipientStreet').value);
+
+            // 🔒 處理備註與六日不收貨（備註欄最容易遭殃，必須過濾！）
+            const noWeekend = document.getElementById('noWeekendDelivery').checked;
+            let finalRemarks = cleanInput(document.getElementById('orderRemarks').value);
+
+            if (noWeekend) {
+                finalRemarks = "⚠️【指定六日不收貨】\n" + finalRemarks;
+            }
+
+            // 🔒 建立安全無毒的資料包
+            const orderPayload = {
+                orderName: cleanInput(document.getElementById('orderName').value),
+                orderPhone: cleanInput(document.getElementById('orderPhone').value),
+                recipientName: cleanInput(document.getElementById('recipientName').value),
+                recipientPhone: cleanInput(document.getElementById('recipientPhone').value),
+                recipientAddress: fullAddress,
+                itemsSummary: itemsSummary,
+                totalPrice: totalPrice,
+                orderRemarks: finalRemarks
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(orderPayload),
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert("🎉 訂單已成功送出！\n\n⚠️ 重要提醒：請務必加入官方 LINE 回傳【訂購人姓名】與【匯款帳號後五碼】，確認付款後才會安排出貨唷！");
+                    cart = [];
+                    renderCart();
+                    document.getElementById('orderForm').reset();
+                    document.getElementById('sameAsOrderer').checked = false;
+                } else {
+                    alert("⚠️ 系統發生錯誤：" + result.error);
+                }
+            } catch (error) {
+                alert("⚠️ 網路連線異常，請確認您的網路狀態或稍後再試。");
+            } finally {
+                submitBtn.innerText = "確認無誤，送出訂單";
+                submitBtn.disabled = false;
+            }
+        }
+
+        // ==========================================
+        // 隱私安全查詢邏輯
+        // ==========================================
+        async function hashData(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        async function queryOrder() {
+            // 🔒 查詢訂單時一樣加入安全防護，過濾異常字元
+            const name = cleanInput(document.getElementById('searchName').value);
+            const phone = cleanInput(document.getElementById('searchPhone').value);
+
+            if (!name || !phone) {
+                showQueryResult('error-box', '請完整輸入訂購人姓名與電話。');
+                return;
+            }
+
+            showQueryResult('success-box', '🔄 正在連線至今夏果園系統查詢中...');
+
+            const rawString = name + phone + SYSTEM_SALT;
+            const searchHash = await hashData(rawString);
+
+            try {
+                const response = await fetch(`${API_URL}?hash=${searchHash}&t=${new Date().getTime()}`);
+                const result = await response.json();
+
+                if (result.found && result.orders && result.orders.length > 0) {
+                    let htmlContent = `<strong style="font-size: 1.2rem; color: #047857;">✅ 查詢成功！您共有 ${result.orders.length} 筆訂單記錄：</strong><br><br>`;
+
+                    result.orders.forEach((order, index) => {
+                        const trackingTxt = (order.trackingNumber !== '無' && order.trackingNumber.trim() !== '') ? order.trackingNumber : '尚未產生';
+
+                        htmlContent += `
+                        <div style="background-color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #A7F3D0; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
+                            <div style="font-weight: 900; color: var(--primary-green); border-bottom: 2px dashed #E5E7EB; padding-bottom: 8px; margin-bottom: 12px; font-size: 1.1rem;">
+                                📦 訂單 ${result.orders.length - index}
+                            </div>
+                            <div style="color: #4B5563;">
+                                ▪️ <strong>收件人：</strong> ${order.recipient} <br>
+                                ▪️ <strong>訂購明細：</strong> <span style="color: #6B7280;">${order.items}</span> <br>
+                                ▪️ <strong>目前狀態：</strong> <span style="background-color: #FEF3C7; padding: 3px 8px; border-radius: 4px; color: #B45309; font-weight: bold;">${order.status}</span><br>
+                                ▪️ <strong>物流單號：</strong> <span style="color:#0369A1; font-weight:bold;">${trackingTxt}</span>
+                            </div>
+                        </div>
+                        `;
+                    });
+
+                    showQueryResult('success-box', htmlContent);
+                } else {
+                    showQueryResult('error-box', `
+                        <strong>⚠️ 查無相符資料</strong><br>
+                        目前尚未查到您的訂單進度。請確認您輸入的「姓名與電話」是否與表單填寫時完全一致，或確認是否已完成匯款。
+                    `);
+                }
+            } catch (error) {
+                showQueryResult('error-box', '連線異常，請稍後再試。');
+            }
+        }
+
+        function showQueryResult(className, htmlContent) {
+            const resultArea = document.getElementById('result-area');
+            resultArea.style.display = 'block';
+            resultArea.className = className;
+            resultArea.innerHTML = htmlContent;
+        }
+    </script>
+
+</body>
+
+</html>
