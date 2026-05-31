@@ -60,9 +60,7 @@
             z-index: 100;
         }
 
-        /* 升級版：極緻吸睛精品橫幅 */
         header {
-            /* 1. 這裡加入了雙層微調遮罩，上方微綠帶出職人感，下方深色確保文字辨識度 */
             background: linear-gradient(rgba(20, 83, 45, 0.4), rgba(15, 23, 42, 0.8)),
                 url('./images/banner-bg.jpg') center/cover no-repeat;
             color: white;
@@ -495,7 +493,7 @@
         </section>
 
         <!-- ========================================== -->
-        <!-- 精簡洗鍊版：得獎紀錄與評鑑認證分區 -->
+        <!-- 得獎紀錄與評鑑認證分區 -->
         <!-- ========================================== -->
         <section id="awards" style="background: white; border: 1px solid var(--border-color); padding: 2.5rem;">
             <h2
@@ -534,7 +532,7 @@
                         殊榮。這份肯定，是我們對您最誠摯的品質承諾。
                     </p>
 
-                    <!-- 核心三大認證（乾淨排版） -->
+                    <!-- 認證 -->
                     <div
                         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: left; margin-top: 1.5rem;">
                         <div
@@ -925,12 +923,12 @@
 
     <script>
         // ==========================================
-        // 核心設定區 (請務必替換為您的 API URL)
+        // 核心設定區
         // ==========================================
         const API_URL = "https://script.google.com/macros/s/AKfycbxTPz13IgRJGTGhmNBxvg0ROcutYnJabyfSqYRpPWEaMv36kxJ8DTAz8tkYZy0GwoJstQ/exec";
         const SYSTEM_SALT = "SecretMango2026";
 
-        // 🔒 安全防護小函數：過濾掉惡意的 HTML 標籤，防止 XSS 攻擊
+        // 安全防護小函數
         function cleanInput(text) {
             if (!text) return "";
             return text.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;").trim();
@@ -1071,7 +1069,7 @@
         }
 
         // ==========================================
-        // 表單與送出訂單邏輯 (新增備註處理與安全防護)
+        // 表單與送出訂單邏輯 
         // ==========================================
         function copyOrderer() {
             const isChecked = document.getElementById('sameAsOrderer').checked;
@@ -1160,7 +1158,7 @@
         }
 
         async function queryOrder() {
-            // 🔒 查詢訂單時一樣加入安全防護，過濾異常字元
+            // 查詢訂單時一樣加入安全防護，過濾異常字元
             const name = cleanInput(document.getElementById('searchName').value);
             const phone = cleanInput(document.getElementById('searchPhone').value);
 
