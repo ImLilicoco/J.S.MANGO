@@ -9,6 +9,18 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=PingFang+TC:wght@400;600&display=swap"
         rel="stylesheet">
     <style>
+        /* 預設隱藏換行 (電腦版看不到) */
+        .mobile-break {
+            display: none;
+        }
+        
+        /* 只有在手機螢幕 (寬度小於 768px) 時，才啟動換行功能 */
+        @media (max-width: 768px) {
+            .mobile-break {
+                display: block;
+            }
+        }
+
         /* 基礎與色彩變數 */
         :root {
             --primary-orange: #F97316;
@@ -731,7 +743,7 @@
                     </h3>
                     <p
                         style="text-align: center; color: #92400E; font-weight: bold; margin-bottom: 0.5rem; font-size: 1.3rem;">
-                        「我有芒果，你有面子！」</p>
+                        「我有芒果，<br class="mobile-break">你有面子！」</p>
                     <p
                         style="text-align: center; color: #92400E; font-size: 1rem; margin-bottom: 2rem; border-bottom: 1px dashed #D97706; padding-bottom: 1rem;">
                         📍 禮盒重量皆為 5 斤 (3公斤) / 盒</p>
