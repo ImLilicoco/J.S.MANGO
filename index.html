@@ -434,7 +434,10 @@
 
     <header>
         <h1>今夏果園</h1>
-        <p>沐浴在屏東烈日下的紅寶石，每一口都是職人堅持的在欉紅</p>
+        <p>甜到驚嚇！
+            <br>今年夏天，就愛今夏果園。
+            <br>沐浴在屏東烈日下的紅寶石，每一口都是職人堅持的在欉紅。
+        </p>
         <a href="#products-section" class="btn-hero">🛒 立即預購</a>
     </header>
 
@@ -444,8 +447,10 @@
             <h2><strong>咪那桑～每年最期待的<span style="display: inline-block;">芒果季來了！</span></strong></h2>
 
             <div class="intro-text">
-                <p>我們會依照果實成熟狀態採收，並經過人工挑選後新鮮出貨。<br
-                        class="mobile-break">天然農產品無法完全一致，每顆在外觀、色澤與熟成速度上都會有些微差異。<br>下單前請先詳閱以下說明，感謝您的支持！</p>
+                <p>我們會依照果實成熟狀態採收，並經過人工挑選後新鮮出貨。
+                    <br>天然農產品無法完全一致，每顆在外觀、色澤與熟成速度上都會有些微差異。
+                    <br>下單前請先詳閱以下說明，感謝您的支持！
+                </p>
             </div>
 
             <div class="grading-container">
@@ -813,8 +818,23 @@
                     <textarea id="orderRemarks" rows="3" placeholder="有什麼想告訴我們的嗎？(例如：請大樓管理員代收)"></textarea>
                 </div>
 
+                <!-- ⚠️ 購買須知區塊 -->
+                <div
+                    style="margin: 2rem 0 1rem; padding: 1.5rem; border: 1px solid #FDE68A; background: #FFFBEB; border-radius: 8px;">
+                    <h4
+                        style="color: #B45309; margin-bottom: 0.8rem; font-size: 1.1rem; display: flex; align-items: center; gap: 6px;">
+                        ⚠️ 購買須知 請詳讀
+                    </h4>
+                    <ol style="padding-left: 1.5rem; color: #92400E; font-size: 0.95rem; line-height: 1.8; margin: 0;">
+                        <li>若遇不可抗力天氣因素，今夏果園保有最終出貨權利。</li>
+                        <li>下單即代表同意以上訂購與配送相關說明。</li>
+                        <li>完美主義者請斟酌下單。</li>
+                        <li>生鮮食品售出後恕不接受個人口感因素退換貨。</li>
+                    </ol>
+                </div>
+
                 <button type="submit" id="submitBtn" class="btn-add"
-                    style="margin-top: 2rem; padding: 18px; font-size: 1.2rem;">送出預購訂單</button>
+                    style="margin-top: 1rem; padding: 18px; font-size: 1.2rem;">送出預購訂單</button>
             </form>
         </section>
 
@@ -827,7 +847,7 @@
             <div class="form-group"><input type="text" id="searchName" placeholder="請輸入訂購人真實姓名" required></div>
             <div class="form-group"><input type="tel" id="searchPhone" placeholder="請輸入訂購人聯絡電話" required></div>
             <button type="button" class="btn-add" onclick="queryOrder()"
-                style="background: var(--primary-green); margin-top: 10px;">安全查詢</button>
+                style="background: var(--primary-green); margin-top: 10px;">訂單查詢</button>
             <div id="result-area"></div>
         </section>
     </main>
